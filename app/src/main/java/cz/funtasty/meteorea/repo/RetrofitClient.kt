@@ -68,8 +68,6 @@ class RetrofitClient {
 
         /**
          * Enable Retrofit to convert data from JSON format to Java object
-         *
-         * @return
          */
         private fun createConverterFactory(): Converter.Factory {
             val builder = GsonBuilder()

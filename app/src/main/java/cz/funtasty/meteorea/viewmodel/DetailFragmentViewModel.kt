@@ -1,3 +1,7 @@
 package cz.funtasty.meteorea.viewmodel
 
-class DetailFragmentViewModel : BaseFragmentViewModel()
+import cz.funtasty.meteorea.entity.Meteorite
+
+class DetailFragmentViewModel : BaseFragmentViewModel() {
+    var meteorite: Meteorite? = null
+}

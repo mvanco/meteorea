@@ -1,4 +1,4 @@
-package cz.funtasty.meteorea.local
+package cz.funtasty.meteorea.entity
 
 import android.arch.persistence.room.Database
 import android.arch.persistence.room.RoomDatabase

@@ -1,11 +1,8 @@
-package cz.funtasty.meteorea.local
+package cz.funtasty.meteorea.entity
 
-import android.arch.lifecycle.LiveData
-import android.arch.lifecycle.MutableLiveData
 import android.arch.persistence.room.Room
 import android.content.Context
 import android.content.SharedPreferences
-import android.util.Log
 import cz.funtasty.meteorea.Application
 import cz.funtasty.meteorea.Config
 import cz.funtasty.meteorea.api.MeteoriteApi
@@ -18,7 +15,6 @@ import javax.inject.Inject
 class DataHelper {
     private val DATABASE_UPDATED_DAY_KEY = "database_updated_day_key"
     private val df: DateFormat = SimpleDateFormat(Config.DATE_FORMAT, Locale.GERMAN)
-    val updatedLiveData = MutableLiveData<List<Meteorite>>()
 
     @Inject
     lateinit var mContext: Context
@@ -39,24 +35,15 @@ class DataHelper {
         this.db = Room.databaseBuilder(mContext, Database::class.java, "database").build()
     }
 
-
-
-
     fun insertMeteorites(meteoritesApi: List<MeteoriteApi>) {
         val meteorites = meteoritesApi.map {Meteorite(it)}
-        Log.d("repo", "inserted ${meteorites.size} meteorites")
-        db.meteoriteDao().insertAll(*meteorites.toTypedArray())
-//        try {
-//            meteoritesApi.forEach {
-//                db.meteoriteDao().insert(Meteorite(it))
-//            }
-//        }
-//        catch (e: Exception) {
-//
-//        }
-//        finally {
-//            updatedLiveData.value = meteoritesApi.map {Meteorite(it)}
-//        }
+        try {
+            db.meteoriteDao().insertAll(*meteorites.toTypedArray())
+        } catch (e: Exception) {
+
+        } finally {
+
+        }
     }
 
     fun clearDatabase() {
@@ -74,7 +61,6 @@ class DataHelper {
     }
 
     fun isActualDatabase(): Boolean {
-        return false // TODO(Remove this)
         val lastUpdate = mSharedPref.getString(DATABASE_UPDATED_DAY_KEY, "")
         if (lastUpdate.isEmpty()) return false
         val lastUpdateDate = df.parse(lastUpdate)

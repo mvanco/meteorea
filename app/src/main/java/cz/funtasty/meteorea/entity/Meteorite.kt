@@ -1,13 +1,16 @@
-package cz.funtasty.meteorea.local
+package cz.funtasty.meteorea.entity
 
 import android.arch.persistence.room.*
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
 import cz.funtasty.meteorea.api.MeteoriteApi as MeteoriteApi
 
 /**
  * Initializations are here for testing
  */
+@Parcelize
 @Entity(tableName = "meteorite")
-data class Meteorite(
+data class Meteorite (
         @PrimaryKey
         @ColumnInfo(name = "id")
         var id: String,
@@ -44,7 +47,7 @@ data class Meteorite(
 
         @ColumnInfo(name = "year")
         var year: String = "2000"
-) {
+): Parcelable {
     constructor(meteoriteApi: MeteoriteApi): this(
             id = meteoriteApi.id,
             fall = meteoriteApi.fall,

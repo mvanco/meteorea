@@ -1,3 +1,7 @@
 package cz.funtasty.meteorea.viewmodel
 
-class DetailActivityViewModel : BaseActivityViewModel()
+import cz.funtasty.meteorea.entity.Meteorite
+
+class DetailActivityViewModel : BaseActivityViewModel() {
+    var meteorite: Meteorite? = null
+}

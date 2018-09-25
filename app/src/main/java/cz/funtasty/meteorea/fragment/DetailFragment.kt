@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import cz.funtasty.meteorea.databinding.FragmentDetailBinding
+import cz.funtasty.meteorea.entity.Meteorite
 import cz.funtasty.meteorea.viewmodel.DetailFragmentViewModel
 
 class DetailFragment : BaseFragment() {
@@ -17,8 +18,14 @@ class DetailFragment : BaseFragment() {
     interface OnFragmentInteractionListener
 
     companion object {
-        fun newInstance(): DetailFragment {
-            return DetailFragment()
+        const val KEY_METEORITE = "movie_key"
+
+        fun newInstance(meteorite: Meteorite): DetailFragment {
+            val fragment =  DetailFragment()
+            val args = Bundle()
+            args.putParcelable(KEY_METEORITE, meteorite)
+            fragment.arguments = args
+            return fragment
         }
     }
 
@@ -26,6 +33,7 @@ class DetailFragment : BaseFragment() {
         super.onCreate(savedInstanceState)
         mViewModel = ViewModelProviders.of(this).get(DetailFragmentViewModel::class.java)
         lifecycle.addObserver(mViewModel)
+        mViewModel.meteorite = arguments?.getParcelable(KEY_METEORITE)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -33,10 +41,6 @@ class DetailFragment : BaseFragment() {
         mBinding = FragmentDetailBinding.inflate(inflater, container, false)
         mBinding.viewModel = mViewModel
         return mBinding.root
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
     }
 
     override fun onAttach(context: Context?) {

@@ -4,13 +4,13 @@ import cz.funtasty.meteorea.injection.ApplicationComponent
 import cz.funtasty.meteorea.injection.ApplicationModule
 import cz.funtasty.meteorea.injection.DaggerApplicationComponent
 
-class Application: android.app.Application {
+class Application: android.app.Application() {
 
     companion object {
         lateinit var sInstance: Application
     }
 
-    constructor() {
+    init {
         sInstance = this
     }
 
