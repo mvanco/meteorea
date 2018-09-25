@@ -6,8 +6,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.a24i.jobinterview.viewmodel.MainFragmentViewModel
 import cz.funtasty.meteorea.databinding.FragmentMainBinding
+import cz.funtasty.meteorea.viewmodel.MainFragmentViewModel
 
 class MainFragment : BaseFragment() {
     private lateinit var mViewModel: MainFragmentViewModel

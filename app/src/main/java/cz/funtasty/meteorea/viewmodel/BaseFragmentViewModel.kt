@@ -1,4 +1,4 @@
-package com.a24i.jobinterview.viewmodel
+package cz.funtasty.meteorea.viewmodel
 
 import android.arch.lifecycle.LifecycleObserver
 import android.arch.lifecycle.ViewModel
