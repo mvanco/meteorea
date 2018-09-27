@@ -9,11 +9,12 @@
 	</data>
 
 	<android.support.v7.widget.CardView
-		android:layout_width="match_parent"
-		android:layout_height="@dimen/meteor_item_height"
-		android:layout_marginTop="@dimen/meteor_item_margin_top"
-		android:layout_marginBottom="@dimen/meteor_item_margin_bottom"
-		tools:layout_height="150dp">
+		android:layout_width="@dimen/meteor_item_width"
+		android:layout_height="match_parent"
+		android:layout_marginLeft="@dimen/meteor_item_margin_top"
+		android:layout_marginRight="@dimen/meteor_item_margin_bottom"
+		android:layout_marginStart="@dimen/meteor_item_margin_top"
+		android:layout_marginEnd="@dimen/meteor_item_margin_bottom">
 
 		<android.support.constraint.ConstraintLayout
 			android:layout_width="match_parent"
@@ -70,7 +71,8 @@
 			<TextView
 				android:id="@+id/tv_label_mass"
 				android:layout_width="wrap_content"
-				android:layout_height="wrap_content" android:layout_marginTop="8dp"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="8dp"
 				android:text="@{String.format(@string/label_format, @string/label_mass_title)}"
 				app:layout_constraintStart_toStartOf="@+id/tv_label_year"
 				app:layout_constraintTop_toBottomOf="@+id/tv_label_year"
@@ -93,15 +95,15 @@
 				android:layout_width="0dp"
 				android:layout_height="0dp"
 				android:layout_marginBottom="8dp"
-				android:layout_marginEnd="16dp"
+				android:layout_marginEnd="8dp"
 				android:layout_marginLeft="8dp"
-				android:layout_marginRight="16dp"
+				android:layout_marginRight="8dp"
 				android:layout_marginStart="8dp"
 				android:layout_marginTop="8dp"
 				android:adjustViewBounds="true"
 				android:src="@drawable/ic_meteor"
-				app:layout_constraintBottom_toBottomOf="parent"
-				app:layout_constraintEnd_toStartOf="@+id/guideline2"
+				app:layout_constraintBottom_toTopOf="@+id/guideline3"
+				app:layout_constraintEnd_toEndOf="parent"
 				app:layout_constraintStart_toStartOf="parent"
 				app:layout_constraintTop_toTopOf="parent"
 				app:mass="@{data.mass}"/>
@@ -111,20 +113,26 @@
 				android:layout_width="0dp"
 				android:layout_height="wrap_content"
 				android:layout_marginEnd="8dp"
+				android:layout_marginLeft="8dp"
 				android:layout_marginRight="8dp"
+				android:layout_marginStart="8dp"
 				android:layout_marginTop="8dp"
 				android:text="@{data.name}"
 				app:layout_constraintEnd_toEndOf="parent"
-				app:layout_constraintStart_toStartOf="@+id/guideline2"
-				app:layout_constraintTop_toTopOf="parent" style="@style/Meteorea.Title"
-				tools:text="Battle Mountain"/>
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toTopOf="@+id/guideline3"
+				tools:text="Battle Mountain"
+				style="@style/Meteorea.Title" />
 
 			<android.support.constraint.Guideline
-				android:id="@+id/guideline2" android:layout_width="wrap_content"
-				android:layout_height="wrap_content" android:orientation="vertical"
-				app:layout_constraintGuide_begin="127dp"/>
+				android:id="@+id/guideline3"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:orientation="horizontal"
+				app:layout_constraintGuide_begin="128dp"/>
 
 		</android.support.constraint.ConstraintLayout>
 
 	</android.support.v7.widget.CardView>
+
 </layout>

@@ -8,8 +8,8 @@ import io.reactivex.Flowable
 
 @Dao
 interface MeteoriteDao {
-    @Query("SELECT * FROM meteorite")
-    fun getAll(): Flowable<List<Meteorite>>
+    @Query("SELECT * FROM meteorite WHERE year > :fromYear ORDER BY mass ASC")
+    fun getAll(fromYear: Int = 2010): Flowable<List<Meteorite>>
 
     @Update
     fun updateAll(vararg meteorites: Meteorite)

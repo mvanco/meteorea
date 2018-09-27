@@ -3,6 +3,7 @@
     package="cz.funtasty.meteorea">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:name=".Application"
@@ -26,6 +27,9 @@
                   android:theme="@style/AppTheme.NoActionBar"
                   android:parentActivityName=".activity.MainActivity"/>
 
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAEVIHirc5HX78F-wcZg4NzmssVHLwfAmw"/>
     </application>
 
 </manifest>

@@ -14,7 +14,7 @@ import javax.inject.Inject
 
 class DataHelper {
     private val DATABASE_UPDATED_DAY_KEY = "database_updated_day_key"
-    private val df: DateFormat = SimpleDateFormat(Config.DATE_FORMAT, Locale.GERMAN)
+    private val df = SimpleDateFormat(Config.DATE_FORMAT, Locale.GERMAN) as DateFormat
 
     @Inject
     lateinit var mContext: Context

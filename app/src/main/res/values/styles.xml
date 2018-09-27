@@ -13,4 +13,27 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="Meteorea.Label" parent="android:Widget.TextView">
+        <item name="android:background">@drawable/label_background</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:paddingStart">4dp</item>
+        <item name="android:paddingLeft">4dp</item>
+        <item name="android:paddingEnd">4dp</item>
+        <item name="android:paddingRight">4dp</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="Meteorea.Parameter" parent="android:Widget.TextView">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="Meteorea.Title" parent="android:Widget.TextView">
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
 </resources>

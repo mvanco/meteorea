@@ -1,5 +1,10 @@
 <resources>
-
+	<string name="label_format">%s:</string>
     <string name="app_name">Meteorea</string>
-
+	<string name="cont_desc_marker">Marker</string>
+	<string name="label_year_title">Year</string>
+	<string name="label_mass_title">Mass</string>
+	<string name="label_class_title">Class</string>
+	<string name="label_metcount_title">Count</string>
+	<string name="title_fallen_meteorities">Fallen meteorites from 2011</string>
 </resources>

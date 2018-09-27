@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<dimen name="marker_width">100dp</dimen>
+	<dimen name="marker_height">100dp</dimen>
+	<dimen name="meteor_item_height">150dp</dimen>
+	<dimen name="recycler_padding_left">8dp</dimen>
+	<dimen name="recycler_padding_right">8dp</dimen>
+	<dimen name="recycler_padding_bottom">4dp</dimen>
+	<dimen name="recycler_padding_top">4dp</dimen>
+	<dimen name="meteor_item_margin_top">4dp</dimen>
+	<dimen name="meteor_item_margin_bottom">4dp</dimen>
+</resources>

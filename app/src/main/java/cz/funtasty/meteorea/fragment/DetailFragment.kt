@@ -1,14 +1,32 @@
 package cz.funtasty.meteorea.fragment
 
+import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Context
+import android.location.Location
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import cz.funtasty.meteorea.databinding.FragmentDetailBinding
 import cz.funtasty.meteorea.entity.Meteorite
 import cz.funtasty.meteorea.viewmodel.DetailFragmentViewModel
+import kotlinx.android.synthetic.main.fragment_detail.view.*
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.CameraUpdate
+import org.osmdroid.api.IGeoPoint
+import org.osmdroid.config.Configuration
+import org.osmdroid.events.MapListener
+import org.osmdroid.events.ScrollEvent
+import org.osmdroid.events.ZoomEvent
+import org.osmdroid.tileprovider.tilesource.TileSourceFactory
+import org.osmdroid.util.GeoPoint
+import android.view.MotionEvent
+import android.view.View.OnTouchListener
+import cz.funtasty.meteorea.Config
+
 
 class DetailFragment : BaseFragment() {
     private lateinit var mViewModel: DetailFragmentViewModel
@@ -43,6 +61,11 @@ class DetailFragment : BaseFragment() {
         return mBinding.root
     }
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        initMap()
+    }
+
     override fun onAttach(context: Context?) {
         super.onAttach(context)
         if (context is OnFragmentInteractionListener) {
@@ -56,5 +79,19 @@ class DetailFragment : BaseFragment() {
     override fun onDetach() {
         super.onDetach()
         mListener = null
+    }
+
+    private fun initMap() {
+        mBinding.mapView.apply {
+            controller. apply {
+                setCenter(mViewModel.meteorite) // Set map to current location.
+                setZoom(Config.DEFAULT_ZOOM)
+            }
+            isTilesScaledToDpi = true
+
+            setOnTouchListener(OnTouchListener { _, _ ->  // Disable movement of map and zooming
+                return@OnTouchListener true
+            })
+        }
     }
 }
